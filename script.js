@@ -33,7 +33,10 @@ function operate(nb1, nb2, operator) {
 function digitClicked(id) {
     if (id == "decimal") {
         if (!actual.includes(".")) {
-            if (actual.length == 0) actual.push("0.");
+            if (actual.length == 0) {
+                actual.push("0");
+                actual.push(".");
+            }
             else actual.push(".");
         }
     } else if (id == "sign-toggle") {
@@ -128,7 +131,6 @@ buttons.addEventListener("click", e => {
 
 let body = document.querySelector("body");
 body.addEventListener("keydown", e => {
-    console.log(e.key);
     switch (e.key) {
         case "0":
         case "1":
