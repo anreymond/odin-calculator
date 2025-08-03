@@ -58,6 +58,7 @@ function operatorClicked(id) {
             screen.textContent = result;
             firstNumber = "";
             secondNumber = "";
+            operator = "";
             actual = [];
         }
     } else {
