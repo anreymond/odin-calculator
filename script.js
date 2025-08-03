@@ -41,9 +41,8 @@ function digitClicked(id) {
             if (actual[0] === "-") actual.shift();
             else actual.unshift("-");
         }
-    } else if (id == "digit0") {
-        if (actual.length > 0) actual.push("0");
     } else {
+        if (actual.length == 1 && actual[0] == "0") actual.pop();
         actual.push(id.charAt(id.length - 1));
     }
     let screen = document.querySelector(".screen");
