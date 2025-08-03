@@ -50,7 +50,32 @@ function digitClicked(id) {
 }
 
 function operatorClicked(id) {
-    // TODO
+    let screen = document.querySelector(".screen");
+    if (id == "equal-operator") {
+        if (operator !== "" && actual.length > 0) {
+            secondNumber = actual.join("");
+            let result = operate(+firstNumber, +secondNumber, operator);
+            screen.textContent = result;
+            firstNumber = "";
+            secondNumber = "";
+            actual = [];
+        }
+    } else {
+        if (operator !== "" && actual.length > 0) {
+            secondNumber = actual.join("");
+            firstNumber = operate(+firstNumber, +secondNumber, operator);
+            screen.textContent = firstNumber;
+            operator = id;
+            actual = [];
+            secondNumber = "";
+        } else if (operator !== "" && actual.length == 0) {
+            operator = id;
+        } else if (operator === "" && actual.length > 0) {
+            firstNumber = actual.join("");
+            actual = [];
+            operator = id;
+        }
+    }
 }
 
 function specialButtonClicked(id) {
