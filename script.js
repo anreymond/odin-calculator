@@ -59,7 +59,9 @@ function specialButtonClicked(id) {
 }
 
 
-
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
 let actual = [];
 
 let buttons = document.querySelector(".buttons");
