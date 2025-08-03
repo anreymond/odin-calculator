@@ -125,3 +125,43 @@ buttons.addEventListener("click", e => {
         specialButtonClicked(e.target.id);
     }
 });
+
+let body = document.querySelector("body");
+body.addEventListener("keydown", e => {
+    console.log(e.key);
+    switch (e.key) {
+        case "0":
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+            digitClicked(`digit${e.key}`);
+            break;
+        case ".":
+            digitClicked("decimal");
+            break;
+        case "+":
+            operatorClicked("add-operator");
+            break;
+        case "-":
+            operatorClicked("subtract-operator");
+            break;
+        case "*":
+            operatorClicked("multiply-operator");
+            break;
+        case "/":
+            operatorClicked("divide-operator");
+            break;
+        case "Enter":
+            operatorClicked("equal-operator");
+            break;
+        case "Backspace":
+            specialButtonClicked("delete");
+            break;
+    }
+});
