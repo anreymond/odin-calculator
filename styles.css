@@ -12,6 +12,7 @@ body {
 .calculator {
     margin-top: 32px;
     padding: 32px;
+    width: 412px;
     background-color: #4a4a4a;
     border: 2px black solid;
     border-radius: 32px;
@@ -30,6 +31,7 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .buttons {
