@@ -55,6 +55,7 @@ function operatorClicked(id) {
         if (operator !== "" && actual.length > 0) {
             secondNumber = actual.join("");
             let result = operate(+firstNumber, +secondNumber, operator);
+            ans = String(result);
             screen.textContent = result;
             firstNumber = "";
             secondNumber = "";
@@ -65,6 +66,7 @@ function operatorClicked(id) {
         if (operator !== "" && actual.length > 0) {
             secondNumber = actual.join("");
             firstNumber = operate(+firstNumber, +secondNumber, operator);
+            ans = String(firstNumber);
             screen.textContent = firstNumber;
             operator = id;
             actual = [];
@@ -80,7 +82,24 @@ function operatorClicked(id) {
 }
 
 function specialButtonClicked(id) {
-    // TODO
+    let screen = document.querySelector(".screen");
+    switch (id) {
+        case "clear":
+            actual = [];
+            firstNumber = "";
+            secondNumber = "";
+            operator = "";
+            screen.textContent = "";
+            break;
+        case "delete":
+            actual.pop();
+            screen.textContent = actual.join("");
+            break;
+        case "ans":
+            actual = ans.split("");
+            screen.textContent = actual.join("");
+            break;
+    }
 }
 
 
@@ -88,6 +107,7 @@ let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 let actual = [];
+let ans = "";
 
 let buttons = document.querySelector(".buttons");
 buttons.addEventListener("click", e => {
