@@ -17,13 +17,13 @@ function divide(nb1, nb2) {
 
 function operate(nb1, nb2, operator) {
     switch (operator) {
-        case "+":
+        case "add-operator":
             return add(nb1, nb2);
-        case "-":
+        case "subtract-operator":
             return subtract(nb1, nb2);
-        case "*":
+        case "multiply-operator":
             return multiply(nb1, nb2);
-        case "÷":
+        case "divide-operator":
             return divide(nb1, nb2);
         default:
             return "ERROR: Unknown operator";
