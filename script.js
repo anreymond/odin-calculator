@@ -29,3 +29,47 @@ function operate(nb1, nb2, operator) {
             return "ERROR: Unknown operator";
     }
 }
+
+function digitClicked(id) {
+    if (id == "decimal") {
+        if (!actual.includes(".")) {
+            if (actual.length == 0) actual.push("0.");
+            else actual.push(".");
+        }
+    } else if (id == "sign-toggle") {
+        if (actual.length != 0) {
+            if (actual[0] === "-") actual.shift();
+            else actual.unshift("-");
+        }
+    } else if (id == "digit0") {
+        if (actual.length > 0) actual.push("0");
+    } else {
+        actual.push(id.charAt(id.length - 1));
+    }
+    let screen = document.querySelector(".screen");
+    screen.textContent = actual.join("");
+}
+
+function operatorClicked(id) {
+    // TODO
+}
+
+function specialButtonClicked(id) {
+    // TODO
+}
+
+
+
+let actual = [];
+
+let buttons = document.querySelector(".buttons");
+buttons.addEventListener("click", e => {
+    let classes = e.target.classList;
+    if (classes.contains("digit")) {
+        digitClicked(e.target.id);
+    } else if (classes.contains("operator")) {
+        operatorClicked(e.target.id);
+    } else if (classes.contains("special-button")) {
+        specialButtonClicked(e.target.id);
+    }
+});
