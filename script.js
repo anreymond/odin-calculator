@@ -45,12 +45,10 @@ function digitClicked(id) {
         if (actual.length == 1 && actual[0] == "0") actual.pop();
         actual.push(id.charAt(id.length - 1));
     }
-    let screen = document.querySelector(".screen");
     screen.textContent = actual.join("");
 }
 
 function operatorClicked(id) {
-    let screen = document.querySelector(".screen");
     if (id == "equal-operator") {
         if (operator !== "" && actual.length > 0) {
             secondNumber = actual.join("");
@@ -88,7 +86,6 @@ function operatorClicked(id) {
 }
 
 function specialButtonClicked(id) {
-    let screen = document.querySelector(".screen");
     switch (id) {
         case "clear":
             actual = [];
@@ -114,6 +111,8 @@ let secondNumber = "";
 let operator = "";
 let actual = [];
 let ans = "";
+const screen = document.querySelector(".screen");
+screen.textContent = "";
 
 let buttons = document.querySelector(".buttons");
 buttons.addEventListener("click", e => {
