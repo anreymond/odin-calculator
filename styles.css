@@ -10,7 +10,7 @@ body {
 }
 
 .calculator {
-    margin: 64px;
+    margin-top: 32px;
     padding: 32px;
     background-color: #4a4a4a;
     border: 2px black solid;
@@ -46,8 +46,8 @@ body {
 }
 
 button {
-    width: 96px;
-    height: 96px;
+    width: 80px;
+    height: 80px;
     border-radius: 16px;
 }
 
