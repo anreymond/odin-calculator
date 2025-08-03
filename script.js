@@ -54,8 +54,8 @@ function operatorClicked(id) {
     if (id == "equal-operator") {
         if (operator !== "" && actual.length > 0) {
             secondNumber = actual.join("");
-            let result = operate(+firstNumber, +secondNumber, operator);
-            ans = String(result);
+            let result = String(operate(+firstNumber, +secondNumber, operator));
+            if (result != "ERROR") ans = result;
             screen.textContent = result;
             firstNumber = "";
             secondNumber = "";
@@ -65,10 +65,16 @@ function operatorClicked(id) {
     } else {
         if (operator !== "" && actual.length > 0) {
             secondNumber = actual.join("");
-            firstNumber = operate(+firstNumber, +secondNumber, operator);
-            ans = String(firstNumber);
-            screen.textContent = firstNumber;
-            operator = id;
+            let result = String(operate(+firstNumber, +secondNumber, operator));
+            if (result != "ERROR") {
+                firstNumber = result;
+                ans = result;
+                operator = id;
+            } else {
+                firstNumber = "";
+                operator = "";
+            }
+            screen.textContent = result;
             actual = [];
             secondNumber = "";
         } else if (operator !== "" && actual.length == 0) {
